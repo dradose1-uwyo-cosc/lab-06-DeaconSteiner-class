@@ -8,6 +8,7 @@
 # Used stack overflow to figure out how to add each character to a dictionary
 # https://www.geeksforgeeks.org/python-sort-python-dictionaries-by-key-or-value/
 # Used geeksforgeeks to figure out how to get the key and value after sorting the dictionary
+# TA helped with formatting and fixing minor errors
 
 
 random_string = """
