@@ -1,12 +1,13 @@
-# Your Name Here
+# Deacon Steiner
 # UWYO COSC 1010
-# Submission Date
+# 10/15/24
 # Lab 06
-# Lab Section: 
+# Lab Section: 11
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
+#  https://stackoverflow.com/questions/32816104/convert-every-character-in-a-string-to-a-dictionary-key 
+# Used stack overflow to figure out how to add each character to a dictionary
+# https://www.geeksforgeeks.org/python-sort-python-dictionaries-by-key-or-value/
+# Used geeksforgeeks to figure out how to get the key and value after sorting the dictionary
 
 
 random_string = """
@@ -61,6 +62,7 @@ lrslowamkcwolbcgfkfciegdwqskuazxnycqkkggzsowcmafay
 ibmkdwkqmdkjesqnjiqpijixbwjhenmsrrlpcseliiajlvcaac
 zkdenxczyooloczcaahnkehbwimvieedpdlqfafbqvxvfmvabd
 """
+
 random_string = random_string.replace("\n","") #remove all newline characters
 print(len(random_string)) # Print out the size for reference 
 
@@ -83,18 +85,61 @@ print(len(random_string)) # Print out the size for reference
 #Load all the elements into a dictionary
 #Will need to first declare a dictionary 
 
+letter_count = {}
+
+for letter in random_string:
+    if letter not in letter_count:
+        letter_count[letter] = 1
+        
+    elif letter in letter_count:
+        letter_count[letter] += 1
+   
 # Output: each letter and its corresponding occurrence in alphabetical order
 
+for letter in sorted(letter_count):
+    print(letter, letter_count[letter])
+
 print("*"*75)
+
 # Output which letter occurred the most 
 
-most_occurred = ""
-least_occurred = ""
+most_occurred = 0
 
-print(f"The letter that occurred the most is {most_occurred}")
+for letter in letter_count:
+    if letter_count[letter] > most_occurred:
+        most_occurred = letter_count[letter]
+        
+    else:
+        most_occurred = most_occurred
+        
+for key in letter_count:
+    if letter_count[key] == most_occurred:
+        high_value = key
+     
+            
+print(f"The letter that occurred the most is {high_value}")
 print("*"*75)
+
 # Output which letter occurred the least 
-print(f"The letter that occurred the most is {least_occurred}")
+
+least_occurred = 2500
+
+for letter in letter_count:
+    if letter_count[letter] < least_occurred:
+        least_occurred = letter_count[letter]
+        
+    else:
+        least_occurred = least_occurred
+        
+for key in letter_count:
+    if letter_count[key] == least_occurred:
+        low_value = key
+
+print(f"The letter that occurred the least is {low_value}")
 print("*"*75)
+
 
 # Output what the percentage of the string each character is, again in alphabetical
+
+for letter in sorted(letter_count):
+    print(letter, (letter_count[letter] / 2500) * 100)
